@@ -2,8 +2,14 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const schema = new mongoose.Schema({
-  name: { type: String, required: true, minlength: 5, maxlength: 25 },
-  chineseName: { type: String, required: true },
+  name: {
+    type: String,
+    unique: true,
+    required: true,
+    minlength: 5,
+    maxlength: 25
+  },
+  chineseName: { type: String, unique: true, required: true },
   price: { type: Number, required: true, min: 0 },
   img: { type: String, required: true },
   spiceDegree: { type: Number, min: 0, max: 5, required: true },
