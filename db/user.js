@@ -67,7 +67,7 @@ async function queryUserById(id) {
 //signin
 async function queryUserByUserName(userName) {
   try {
-    const doc = await User.findOne({ username: userName }).select('-password');
+    const doc = await User.findOne({ username: userName });
 
     return doc;
   } catch (error) {

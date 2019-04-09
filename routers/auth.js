@@ -3,7 +3,7 @@ const router = express.Router();
 const brcypt = require('bcrypt');
 const config = require('config');
 const jwt = require('jsonwebtoken');
-const { authMiddleWare } = require('../middleware/auth');
+const authMiddleWare = require('../middleware/auth');
 
 const jwtPrivateKey = config.get('jwtPrivateKey');
 const {

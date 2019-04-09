@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { getMeals, queryMeal } = require('../db/meal');
+const authority = require('../middleware/permission');
+const authMiddleWare = require('../middleware/auth');
+const { getMeals, queryMeal, updateMeal } = require('../db/meal');
 //get
 router.get('/', async (req, res) => {
   const pageIndex = req.query.pageIndex;
@@ -13,4 +15,11 @@ router.get('/:id', async (req, res) => {
   const result = await queryMeal(id);
   res.send(result);
 });
+//update
+router.put('/', [authMiddleWare, authority], async (req, res) => {
+  const meal = req.body;
+  const result = await updateMeal(meal);
+  res.send(result);
+});
+//
 module.exports = router;

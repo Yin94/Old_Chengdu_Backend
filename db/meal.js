@@ -63,6 +63,7 @@ async function deleteMeal(_id) {
 exports.Meal = Meal;
 exports.getMeals = getMeals;
 exports.queryMeal = queryMeal;
+exports.updateMeal = updateMeal;
 //
 const pH = {
   name: 'Szechuan Potato',
