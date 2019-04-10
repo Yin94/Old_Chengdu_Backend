@@ -1,4 +1,5 @@
 const winston = require('winston');
+const config = require('config');
 require('winston-mongodb');
 const LEVEL = {
   error: 0,
@@ -22,7 +23,8 @@ const logger = winston.createLogger({
     // - Write all logs error (and below) to `error.log`.
     //
     new winston.transports.MongoDB({
-      db: 'mongodb://localhost/lao-chengdu',
+      db: config.get('db'),
+
       level: LEVEL.error
     }),
 
