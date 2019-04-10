@@ -1,3 +1,4 @@
 {
-  "jwtPrivateKey": "laochengdu_jwtPrivateKey"
+  "jwtPrivateKey": "laochengdu_jwtPrivateKey",
+  "db": "laochengdu_db"
 }
