@@ -1,4 +1,5 @@
 {
   "jwtPrivateKey": "laochengdu_jwtPrivateKey",
-  "db": "laochengdu_db"
+  "db": "laochengdu_db",
+  "NODE_ENV": "laochengdu_NODE_ENV"
 }

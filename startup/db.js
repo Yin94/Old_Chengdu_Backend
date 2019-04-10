@@ -6,7 +6,7 @@ module.exports = (() => {
   if (!config.get('db')) console.log('no db specified!');
   console.log('db ulr:' + config.get('db'));
   mongoose
-    .connect(config.get('db'), { useNewUrlParser: true })
+    .connect(config.get('db'))
     .then(() => console.log('Connected to DB'))
     .catch(err => console.log('connection to DB failed:' + err));
 })();
