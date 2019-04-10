@@ -21,14 +21,13 @@ const Meal = mongoose.model('Meal', schema, 'Meal');
 //C
 async function createMeal(meal) {
   try {
-    await meal.validate();
     const result = await Meal.create(meal);
     return result;
   } catch (error) {
-    // console.log(error.errors);
+    if (!error.errors) return error.message;
     for (field in error.errors) {
-      // get errors
       console.log(error.errors[field].message);
+      return error.errors[field].message;
     }
   }
 }
@@ -59,20 +58,9 @@ async function deleteMeal(_id) {
   return result;
 }
 //
-
 exports.Meal = Meal;
 exports.getMeals = getMeals;
 exports.queryMeal = queryMeal;
 exports.updateMeal = updateMeal;
+exports.createMeal = createMeal;
 //
-const pH = {
-  name: 'Szechuan Potato',
-  chineseName: '青椒土豆丝',
-  price: 13,
-  spiceDegree: 3,
-  monthlySaleCount: 30,
-  img: 'https://i.ytimg.com/vi/IKhAyGSpYrM/maxresdefault.jpg',
-  __v: 0
-};
-
-const meal = new Meal(pH);
