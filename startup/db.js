@@ -3,6 +3,8 @@ const config = require('config');
 
 //mongodb
 module.exports = (() => {
+  if (!config.get('db')) console.log('no db specified!');
+  console.log('db ulr:' + config.get('db'));
   mongoose
     .connect(config.get('db'), { useNewUrlParser: true })
     .then(() => console.log('Connected to DB'))
