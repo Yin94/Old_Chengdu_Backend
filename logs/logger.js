@@ -1,5 +1,5 @@
 const winston = require('winston');
-const config = require('config');
+
 require('winston-mongodb');
 const LEVEL = {
   error: 0,
@@ -22,12 +22,6 @@ const logger = winston.createLogger({
     // - Write to all logs with level `info` and below to `combined.log`
     // - Write all logs error (and below) to `error.log`.
     //
-    new winston.transports.MongoDB({
-      db: config.get('db'),
-
-      level: LEVEL.error
-    }),
-
     new winston.transports.File({
       filename: './logs/error.log',
       level: LEVEL.error
