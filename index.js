@@ -1,9 +1,10 @@
 const express = require('express');
 require('express-async-errors');
-//uncaught excetion handlers
-require('./startup/exceptions-handlers');
 //config: jwt
 require('./startup/config');
+//uncaught excetion handlers
+require('./startup/exceptions-handlers');
+
 //server
 const app = express();
 //middlewares and routes

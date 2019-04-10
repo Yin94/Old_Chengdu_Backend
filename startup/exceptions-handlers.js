@@ -1,5 +1,6 @@
 const logger = require('../logs/logger');
 const winston = require('winston-callback');
+
 winston.add(
   new winston.transports.Console({
     format: winston.format.combine(
