@@ -10,6 +10,8 @@ const app = express();
 require('./startup/routes')(app);
 //database
 require('./startup/db');
+//prod
+require('./prod/prod')(app);
 //listen
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
