@@ -31,6 +31,10 @@ router.post('/signin', async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   const user = await queryUserByUserName(username);
+  if (!user) {
+    res.status(400).send('User of this username does not exists');
+    return;
+  }
   const permission = await brcypt.compare(password, user.password);
   if (permission) {
     const { _id, email, phone } = user;
